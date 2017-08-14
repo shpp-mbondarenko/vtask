@@ -1,6 +1,6 @@
 <?php
 	 include 'connect.php';
-	 $q = $_GET['del_id'];
+	 $q = $_POST['del_id'];
 	 $query = "DELETE FROM " . $mainTab . " WHERE id=" . $q;	
 	 if (mysqli_query($conn,$query)) {
 	 	echo "Record deleted!";

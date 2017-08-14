@@ -1,8 +1,9 @@
 <?php
 	 include 'connect.php';
-	 $query = "SELECT * FROM " . $mainTab;
+	 $salary = $_POST["salary"];
+	 $query = "SELECT * FROM " . $mainTab . " WHERE salary=" . $salary;
 	 $result = mysqli_query($conn,$query);
-	 echo '<table>
+	 echo "<table>
 			  <tr>
 			    <th>Id</th>
 			    <th>Name</th>
@@ -10,8 +11,8 @@
 			    <th>Salary</th>
 			    <th>Edit record</th>
 			    <th>Deleting</th>
-			    <th><Button onclick="deleteWithCheckBoxes()">Delete Several</Button></th>
-			  </tr>';
+			    <th><Button>Delete Several</Button></th>
+			  </tr>";
 	 while ($output = mysqli_fetch_assoc($result)) {
 	 	echo '<tr>
 			    <td>'. $output['id'] .'</td>
@@ -20,7 +21,7 @@
 			    <td>'. $output['salary'] .'</td>
 			    <td onclick="fillEditForm(this)">Edit</td>
 			    <td><a onclick="deleteThisRecord('.$output['id'].')">Delete</a></td>
-			    <td><input type="checkbox" class="delCb" myid="'.$output['id'].'"></td>		    
+			    <td><input type="checkbox" name="a" value=""></td>		    
 			  </tr>';	 	
 	 }
 	 echo "</table>";
